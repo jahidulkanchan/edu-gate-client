@@ -1,10 +1,16 @@
 'use client';
+
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import axiosInstance from '@/lib/axios';
-
+import { useAuth } from '@/context/AuthContext';
 
 export default function UserProfile() {
+  const { user, loading: authLoading } = useAuth();
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -12,50 +18,59 @@ export default function UserProfile() {
     university: '',
     address: '',
   });
-  const [loading, setLoading] = useState(true);
-  console.log("ddddddddddddddd", formData)
 
-  // প্রোফাইল ডাটা fetch করার ফাংশন
+  // 🔐 Redirect to login if not authenticated
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.replace('/login');
+    }
+  }, [authLoading, user, router]);
+
+  // ✅ Fetch profile data
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const response = await axiosInstance.get('/api/users/profile');
+      const response = await axiosInstance.get('api/users/profile');
       setFormData(response.data);
     } catch (error) {
-      toast.error('প্রোফাইল লোড করতে সমস্যা হয়েছে');
       console.error('Error fetching profile:', error);
+      toast.error('Failed to load profile');
+
     } finally {
       setLoading(false);
     }
   };
 
-  // কম্পোনেন্ট মাউন্ট হলে ডাটা fetch করুন
+  // 📦 On mount
   useEffect(() => {
-    fetchProfile();
-  }, []);
+    if (user) {
+      fetchProfile();
+    }
+  }, [user]);
 
-  // ইনপুট ফিল্ডে পরিবর্তন হ্যান্ডেল করা
+  // 📝 Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ডাটা সেভ করার ফাংশন
+  // 💾 Save profile changes
   const handleSave = async () => {
     try {
       setLoading(true);
-      await axiosInstance.put('/api/users/profile', formData);
-      toast.success('প্রোফাইল সফলভাবে আপডেট হয়েছে');
+      await axiosInstance.put('api/users/profile', formData);
+      toast.success('Profile updated successfully');
+
       setEditMode(false);
     } catch (error) {
-      toast.error('প্রোফাইল আপডেট করতে সমস্যা হয়েছে');
       console.error('Error updating profile:', error);
+      toast.error('Failed to update profile');
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading && !editMode) {
+  if (authLoading || !user || (loading && !editMode)) {
     return (
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
         <div className="flex justify-center">

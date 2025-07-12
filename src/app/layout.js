@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { AuthProvider } from "@/context/AuthContext";
+ import { ToastContainer} from 'react-toastify';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className="bg-white text-black">
           <AuthProvider>
+            <ToastContainer />
             <Navbar />
             <main className="min-h-[400px] bg-white text-black">{children}</main>
             <Footer />
