@@ -3,18 +3,20 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext'; // ✅ Auth context import
+import { useAuth } from '@/context/AuthContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const { user, logout } = useAuth(); // ✅ context থেকে user ও logout ফাংশন আনো
+  const { user, logout } = useAuth(); // user object contains isAdmin too
 
   const handleLogout = () => {
     logout();
     router.push('/login');
   };
+
+  const isAdmin = user?.isAdmin; // check if admin
 
   return (
     <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50">
@@ -35,19 +37,30 @@ export default function Navbar() {
             <Link href="/colleges" className="hover:bg-blue-700 px-3 py-2 rounded">
               Colleges
             </Link>
-            <Link href="/admission" className="hover:bg-blue-700 px-3 py-2 rounded">
-              Admission
-            </Link>
-            <Link href="/my-college" className="hover:bg-blue-700 px-3 py-2 rounded">
-              My College
-            </Link>
+
+            {!isAdmin && (
+              <>
+                <Link href="/admission" className="hover:bg-blue-700 px-3 py-2 rounded">
+                  Admission
+                </Link>
+                <Link href="/my-college" className="hover:bg-blue-700 px-3 py-2 rounded">
+                  My College
+                </Link>
+              </>
+            )}
+
+            {isAdmin && (
+              <Link href="/admission-approvals" className="hover:bg-yellow-500 px-3 py-2 rounded">
+                Admission Approvals
+              </Link>
+            )}
+
             {user && (
               <Link href="/profile" className="block px-4 py-2 hover:bg-blue-800">
                 Profile
               </Link>
             )}
 
-            {/* Auth Button */}
             {user ? (
               <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 px-3 py-2 rounded transition">
                 Logout
@@ -91,24 +104,30 @@ export default function Navbar() {
           <Link href="/colleges" className="block px-4 py-2 hover:bg-blue-800">
             Colleges
           </Link>
-          <Link href="/admission" className="block px-4 py-2 hover:bg-blue-800">
-            Admission
-          </Link>
-          <Link href="/my-college" className="block px-4 py-2 hover:bg-blue-800">
-            My College
-          </Link>
+          {!isAdmin && (
+            <>
+              <Link href="/admission" className="block px-4 py-2 hover:bg-blue-800">
+                Admission
+              </Link>
+              <Link href="/my-college" className="block px-4 py-2 hover:bg-blue-800">
+                My College
+              </Link>
+            </>
+          )}
+          {isAdmin && (
+            <Link href="/admission-approvals" className="hover:bg-yellow-500 px-3 py-2 rounded">
+              Admission Approvals
+            </Link>
+          )}
           {user && (
             <Link href="/profile" className="block px-4 py-2 hover:bg-blue-800">
               Profile
             </Link>
           )}
-
           {user ? (
-            <>
-              <button onClick={handleLogout} className="block w-full text-left px-4 py-2 bg-red-600 hover:bg-red-700">
-                Logout
-              </button>
-            </>
+            <button onClick={handleLogout} className="block w-full text-left px-4 py-2 bg-red-600 hover:bg-red-700">
+              Logout
+            </button>
           ) : (
             <Link href="/login" className="block px-4 py-2 bg-green-500 hover:bg-green-600">
               Login
