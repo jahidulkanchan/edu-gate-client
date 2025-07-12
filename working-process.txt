@@ -1,0 +1,68 @@
+src/app/
+  ├── page.js              # Home page
+  ├── layout.js            # Root layout with navbar, footer
+  ├── colleges/            # Colleges related pages
+  │     ├── page.js        # /colleges route
+  │     └── [id]/          # Dynamic route for college details
+  │           └── page.js  # /colleges/[id]
+  ├── admission/
+  │     └── page.js        # Admission page
+  ├── my-college/
+  │     └── page.js        # My College page
+  ├── profile/
+  │     └── page.js        # Profile page
+  ├── login/
+  │     └── page.js        # Login page
+  ├── register/
+  │     └── page.js        # Register page
+  ├── reset-password/
+  │     └── page.js        # Password reset page
+  └── not-found.js          # 404 page (Next.js 13 convention)
+
+  সহজ ও প্রথমে ডিজাইন করার জন্য পেজ:
+১. Login Page (/login)
+২. Register Page (/register)
+৩. Reset Password Page (/reset-password)
+৪. Not Found Page (/not-found.js)
+
+কারণ:
+
+এগুলো সাধারণত ফর্ম বা স্ট্যাটিক মেসেজ বেজড।
+
+ফাংশনালিটি সহজ, ডাটা খুব বেশি নেই।
+
+ইউজার অথেনটিকেশন যেহেতু প্রজেক্টের বেসিক, তাই এগুলো আগে বানানো ভালো।
+
+এর পর ডিজাইন করতে পারো:
+৫. Profile Page (/profile)
+
+ইউজারের ডিটেইলস দেখাবে এবং এডিট ফাংশনালিটি থাকবে।
+
+কিন্তু এটাও UI হিসেবে বেশি জটিল না।
+
+৬. My College Page (/my-college)
+
+ইউজারের বুক করা কলেজ এবং রিভিউ দেখাবে।
+
+মাঝারি কমপ্লেক্সিটি।
+
+শেষে ডিজাইন করো:
+৭. Home Page (/page.js)
+৮. Colleges List Page (/colleges/page.js)
+৯. College Details Page (/colleges/[id]/page.js)
+১০. Admission Page (/admission/page.js)
+
+কারণ:
+
+এগুলোতে অনেক ডাটা ডায়নামিক্যালি দেখাতে হবে।
+
+সার্চ, ডাইনামিক রুটিং, ফর্ম সহ বেশ কিছু ফিচার আছে।
+
+সময় ও পরিকল্পনা বেশি লাগবে।
+
+সারাংশ:
+প্রথমে লেগ্যাসি অথেনটিকেশন পেজগুলো বানাও (Login, Register, Reset Password, 404), তারপর ইউজার প্রোফাইল ও মাই কলেজ, তারপর হোম ও কলেজ রিলেটেড পেজগুলো ডিজাইন করো।
+
+তাই তুমি তাড়াতাড়ি ইউজার লগইন-রেজিস্ট্রেশন প্রক্রিয়া তৈরিতে ফোকাস করতে পারবে।
+
+প্রয়োজনে প্রতিটা পেজের জন্য কোড বা UI ডিজাইন সাহায্য করতে পারি!
