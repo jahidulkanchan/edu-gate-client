@@ -3,7 +3,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-50">
   {/* <!-- Hero Section --> */}
-  <section className="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-20 px-4">
+  <section className="bg-gradient-to-r text-black from-blue-800 to-blue-600 text-white py-20 px-4">
     <div className="max-w-6xl mx-auto text-center">
       <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to College Booking</h1>
       <p className="text-xl md:text-2xl mb-8">Find and book the perfect college for your future</p>
@@ -18,13 +18,13 @@ export default function HomePage() {
         </div>
         
         {/* <!-- Search Fields --> */}
-        <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="p-6 grid grid-cols-1 md:grid-cols-3 text-black gap-4">
           <div>
-            <label className="block text-gray-700 text-sm font-medium mb-2">Location</label>
+            <label className="block text-sm font-medium mb-2">Location</label>
             <input type="text" placeholder="City or State" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
           </div>
           <div>
-            <label className="block text-gray-700 text-sm font-medium mb-2">Program</label>
+            <label className="block text-sm font-medium mb-2">Program</label>
             <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
               <option>Select a program</option>
               <option>Engineering</option>

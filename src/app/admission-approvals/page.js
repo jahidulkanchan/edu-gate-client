@@ -1,9 +1,9 @@
+import AdmissionApprovals from "./AdmissionApprovals";
 
-export default function AdmissionApprovalsClient() {
+export default function AdmissionApprovalsPage() {
   return (
-     <main className="p-6">
-          <h1 className="text-3xl font-bold mb-6 text-center">Admission Page</h1>
-          <AdmissionApprovalsClient/>
-        </main>
+    <main className="p-6">
+      <AdmissionApprovals />
+    </main>
   );
 }
