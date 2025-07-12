@@ -1,18 +1,27 @@
 // src/components/RegisterForm.jsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 export default function RegisterForm() {
+   const { user, loading: authLoading } = useAuth();
+    const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
-
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+ useEffect(() => {
+   if (!authLoading && user) {
+     router.replace('/'); // Redirect to home page
+   }
+ }, [authLoading, user, router]);
+
 
   const handleChange = (e) => {
     setFormData({
