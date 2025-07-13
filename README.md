@@ -1,6 +1,18 @@
 # 🎓 EduGate – College Booking Web Application
+## 🧪 Test Login Credentials
+
+### 🔹 Admin Account
+
+- **Email:** `admin@gmail.com`  
+- **Password:** `12345678`
+
+### 🔹 User Account
+
+- **Email:** `user1@gmail.com`  
+- **Password:** `12345678`
 
 🌐 **Live Link:** [https://edugate-client.vercel.app](https://edugate-client.vercel.app)
+
 
 EduGate is a modern and user-friendly **college booking platform** where users can explore top colleges, view admission schedules, read about research, sports, and events, and apply online. Built with **Next.js and MongoDB**, this system ensures a seamless experience for both students and admins.
 
@@ -21,17 +33,7 @@ The main goal of EduGate is to make the college selection and admission process 
 
 ---
 
-## 🧪 Test Login Credentials
 
-### 🔹 Admin Account
-
-- **Email:** `admin@gmail.com`  
-- **Password:** `12345678`
-
-### 🔹 User Account
-
-- **Email:** `user1@gmail.com`  
-- **Password:** `12345678`
 
 > You can use these accounts to experience the app features like admission submission, review posting, and profile editing.
 
