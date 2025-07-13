@@ -27,19 +27,21 @@ export default function LoginForm() {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
-        uid: user.uid,
+        password: null, // tell backend this is Google login
       };
 
-      const token = await user.getIdToken();
+      // ✅ Call your backend API
+      const response = await axiosInstance.post('/api/users/login', userData);
 
-      // Login function → context or localStorage
-      login(userData, token);
+      // response contains user + your JWT token
+      login(response.data.user, response.data.token); // Store it in context/localStorage
       router.push('/');
     } catch (err) {
       console.error(err);
       setError('Google login failed. Please try again.');
     }
   };
+
 
   // ✅ Email/Password login handler
   const handleSubmit = async (e) => {
