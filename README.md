@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 EduGate – College Booking Web Application
 
-## Getting Started
+🌐 **Live Link:** [https://edugate-client.vercel.app](https://edugate-client.vercel.app)
 
-First, run the development server:
+EduGate is a modern and user-friendly **college booking platform** where users can explore top colleges, view admission schedules, read about research, sports, and events, and apply online. Built with **Next.js and MongoDB**, this system ensures a seamless experience for both students and admins.
+
+---
+
+## 🎯 Project Purpose
+
+The main goal of EduGate is to make the college selection and admission process easier and smarter for students. It offers:
+
+- 🔍 College search by name
+- 🏫 College list with ratings, admission dates, and research overview
+- 📄 College details with research, events, and sports
+- 📝 Online admission form submission
+- ⭐ Review & feedback system
+- 🔐 Secure authentication with JWT
+- 👤 Profile management & edit
+- 📷 Gallery & research showcase
+
+---
+
+## 🧪 Test Login Credentials
+
+### 🔹 Admin Account
+
+- **Email:** `admin@gmail.com`  
+- **Password:** `12345678`
+
+### 🔹 User Account
+
+- **Email:** `user1@gmail.com`  
+- **Password:** `12345678`
+
+> You can use these accounts to experience the app features like admission submission, review posting, and profile editing.
+
+---
+
+## 🛠 Built With
+
+- ⚛️ **Next.js 14+** (App Router)
+- 🌐 **Express.js** (Backend API)
+- 🗃 **MongoDB** (Database)
+- 🔒 **JWT Auth + Google OAuth**
+- 🎨 **Tailwind CSS** (Responsive UI)
+- ☁️ **Vercel + Render** (Deployment)
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/your-username/edugate-client.git
+cd edugate-client
