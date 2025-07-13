@@ -2,6 +2,7 @@
 import axiosInstance from '@/lib/axios';
 import { useEffect, useState } from 'react';
 import { FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ResearchSection() {
   const [colleges, setColleges] = useState([]);
@@ -68,10 +69,10 @@ export default function ResearchSection() {
 
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-gray-500">Published: {college.researchDate || 'N/A'}</span>
-                      <a href={college.researchLink || '#'} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium">
+                      <Link href={college.researchLink || '#'} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium">
                         Read Paper
                         <ChevronDown className="ml-1 h-4 w-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

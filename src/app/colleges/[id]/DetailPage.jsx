@@ -273,9 +273,9 @@ export default function DetailPage({ id }) {
                     <div>
                       <h3 className="font-semibold">Website</h3>
                       {college.website ? (
-                        <a href={college.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        <Link href={college.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                           {college.website}
-                        </a>
+                        </Link>
                       ) : (
                         <p className="text-gray-600">Not available</p>
                       )}

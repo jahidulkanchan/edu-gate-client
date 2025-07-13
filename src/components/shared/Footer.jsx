@@ -15,18 +15,18 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white">EduGate</h3>
             <p className="text-sm">Connecting students with their perfect colleges since 2020. Our platform helps you discover, compare, and apply to colleges effortlessly.</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="https://www.linkedin.com/company/yourpage" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
 
