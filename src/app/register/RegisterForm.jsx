@@ -18,7 +18,7 @@ export default function RegisterForm() {
   const [message, setMessage] = useState('');
  useEffect(() => {
    if (!authLoading && user) {
-     router.replace('/'); // Redirect to home page
+     router.replace('/'); 
    }
  }, [authLoading, user, router]);
 
@@ -37,7 +37,8 @@ export default function RegisterForm() {
     try {
       const res = await axios.post('http://localhost:5000/api/users/register', formData);
       setMessage('Registration successful!');
-      setFormData({ name: '', email: '', password: '' }); // clear form
+      setFormData({ name: '', email: '', password: '' }); 
+      router.push('/login')
     } catch (err) {
       setMessage(err.response?.data?.message || 'Registration failed!');
     } finally {
