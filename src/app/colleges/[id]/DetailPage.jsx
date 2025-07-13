@@ -8,18 +8,18 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function DetailPage({ id }) {
-  const [college, setCollege] = useState(null);
+  const [college, setCollege] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(college);
+
 
   useEffect(() => {
     if (!id) return;
-
+    
     const fetchCollege = async () => {
       try {
         const res = await axiosInstance.get(`api/colleges/${id}`);
-        setCollege(res.data);
+        setCollege(res.data.college);
       } catch (err) {
         setError(err.message || 'Failed to load college data');
       } finally {
@@ -72,7 +72,13 @@ export default function DetailPage({ id }) {
       <main className="bg-gray-50 min-h-screen pb-16">
         {/* Hero Section */}
         <div className="relative h-64 md:h-96 w-full bg-gray-900">
-          <Image src="/school.avif" alt="college-image" className="w-full h-full object-cover opacity-70" width={1200} height={400} />
+          {college?.imageUrl ? (
+            <Image src={college.imageUrl} alt={`${college.name} campus image`} className="w-full h-full object-cover opacity-70" width={1200} height={400} />
+          ) : (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center opacity-70">
+              <span className="text-gray-500">No image available</span>
+            </div>
+          )}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{college.name}</h1>
