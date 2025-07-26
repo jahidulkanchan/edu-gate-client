@@ -9,6 +9,7 @@ import SearchBar from "@/components/home-page/SearchBar";
 // src/app/page.js
 export default function HomePage() {
   return (
+    
     <main className="min-h-screen">
       {/* <!-- Hero Section --> */}
      <HeroSection/>

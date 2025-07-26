@@ -1,49 +1,18 @@
 'use client';
 
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext'; // ✅ Import AuthContext
 import axiosInstance from '@/lib/axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { auth, provider, signInWithPopup } from '@/lib/firebase.init'
-import { FcGoogle } from 'react-icons/fc';
 
 export default function LoginForm() {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login } = useAuth(); // ✅ context থেকে login function
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  // ✅ Google Login handler
-  const handleGoogleLogin = async () => {
-    setError('');
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      const userData = {
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-        password: null, // tell backend this is Google login
-      };
-
-      // ✅ Call your backend API
-      const response = await axiosInstance.post('/api/users/login', userData);
-
-      // response contains user + your JWT token
-      login(response.data.user, response.data.token); // Store it in context/localStorage
-      router.push('/');
-    } catch (err) {
-      console.error(err);
-      setError('Google login failed. Please try again.');
-    }
-  };
-
-
-  // ✅ Email/Password login handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -54,6 +23,7 @@ export default function LoginForm() {
         password,
       });
 
+      // ✅ Login function will update context + localStorage
       login(response.data.user, response.data.token);
       router.push('/');
     } catch (error) {
@@ -67,25 +37,6 @@ export default function LoginForm() {
 
       {error && <p className="text-red-600 mb-4 text-center">{error}</p>}
 
-      {/* ✅ Google Login Button */}
-      <div className="mb-6 text-center">
-        <button
-          onClick={handleGoogleLogin}
-          className="flex items-center justify-center gap-3 w-full py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition"
-        >
-          <FcGoogle className="text-2xl" />
-          <span>Continue with Google</span>
-        </button>
-      </div>
-
-      {/* ✅ Divider */}
-      <div className="flex items-center justify-between mb-6">
-        <hr className="w-1/3 border-gray-300" />
-        <span className="text-sm text-gray-500">or login with email</span>
-        <hr className="w-1/3 border-gray-300" />
-      </div>
-
-      {/* ✅ Email/Password Form */}
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label htmlFor="email" className="block mb-1 font-medium text-gray-800">

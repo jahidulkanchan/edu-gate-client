@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "EduGate",
-  description: "Education Booking Application",
+  title: 'EduGate | Book Your Future',
+  description: 'EduGate is an all-in-one platform for students to explore and book admissions to top colleges and universities with ease.',
+  keywords: ['EduGate', 'College Admission', 'University Booking', 'Education Platform', 'Student Portal', 'Admission Management', 'College Finder', 'Education Booking App'],
 };
 
 export default function RootLayout({ children }) {
