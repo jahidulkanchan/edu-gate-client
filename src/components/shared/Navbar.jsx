@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { Menu, X } from 'lucide-react';
+import { RxCross2 } from 'react-icons/rx';
+import { HiOutlineMenuAlt4 } from 'react-icons/hi';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,32 +53,35 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-white hover:text-blue-100 transition-colors" onClick={handleMobileLinkClick}>
+          <Link href="/" className="text-3xl flex items-center gap-1.5 font-bold text-white hover:text-blue-100 transition-colors" onClick={handleMobileLinkClick}>
+            <Image className="w-[50px]" width={100} height={100} src="/logo.png" alt="logo" />
             EduGate
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-2 items-center">
-            <NavLink href="/" text="Home" />
-            <NavLink href="/colleges" text="Colleges" />
+            <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/" text="Home" />
+            <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/colleges" text="Colleges" />
 
             {!isAdmin && (
               <>
-                <NavLink href="/admission" text="Admission" />
-                <NavLink href="/my-college" text="My College" />
+                <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/admission" text="Admission" />
+                <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/my-college" text="My College" />
               </>
             )}
 
             {isAdmin && <NavLink href="/admission-approvals" text="Approvals" className="bg-yellow-500 hover:bg-yellow-600" />}
 
-            {user && <NavLink href="/profile" text="Profile" />}
+            {user && <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/profile" text="Profile" />}
 
             {user ? (
-              <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md transition-colors duration-200 flex items-center gap-1">
+              <button
+                onClick={handleLogout}
+                className="bg-white hover:bg-white/80 px-4 py-2 rounded transition-colors text-blue-500 ml-2 font-medium cursor-pointer duration-200 flex items-center gap-1">
                 Logout
               </button>
             ) : (
-              <Link href="/login" className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md transition-colors duration-200 flex items-center gap-1">
+              <Link href="/login" className="bg-btn-bg  hover:bg-green-600 ml-10 px-4 py-2 rounded transition-colors text-white duration-200 flex items-center gap-1">
                 Login
               </Link>
             )}
@@ -85,7 +90,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md text-white hover:bg-blue-700 focus:outline-none transition-colors" aria-label="Toggle menu">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <RxCross2 size={35} /> : <HiOutlineMenuAlt4 size={35} />}
             </button>
           </div>
         </div>

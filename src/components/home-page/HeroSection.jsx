@@ -1,11 +1,10 @@
 'use client';
 
-import { Search } from 'lucide-react';
 import SearchBar from './SearchBar';
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-600 to-indigo-800 text-white py-16 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-b-3xl shadow-xl">
+    <section className="relative bg-gradient-to-br 2xl:min-h-[700px] from-blue-600 to-indigo-800 text-white py-10 px-4 sm:px-6 lg:px-8 overflow-hidden shadow-xl flex justify-center items-center">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
@@ -14,15 +13,16 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto text-center">
         {/* Animated heading */}
-        <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-            Discover Your <span className="text-yellow-300">Perfect College</span> Match
-          </h1>
-
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto opacity-95 leading-relaxed">
-            Find, compare, and book college facilities with our comprehensive platform.
-            <span className="block mt-2 font-medium">Start your educational journey today.</span>
-          </p>
+        <div className="animate-fade-in animate-delay-100 mb-5">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  mb-4 leading-20 bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-green-500 to-yellow-300 text-shadow-lg">
+              Discover Your <span className="block sm:inline-block">Perfect College Match</span>
+            </h1>
+            <p className="text-lg md:text-lg lg:text-xl mx-auto opacity-90 leading-relaxed text-white">
+              Find, compare, and book college facilities with our comprehensive platform.
+              Start your educational journey today.
+            </p>
+          </div>
         </div>
 
         {/* Using your SearchBar component */}
@@ -40,7 +40,7 @@ export default function HeroSection() {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/80">
+        <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/80">
           <div className="flex items-center gap-2">
             <div className="flex -space-x-2">
               {[1, 2, 3].map((item) => (

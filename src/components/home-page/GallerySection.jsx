@@ -78,7 +78,7 @@ export default function UniversityGallery() {
 
   return (
     <section className="py-12 bg-gray-50">
-      <div className="container px-2 md:px-5">
+      <div className="container px-2 mx-auto max-w-7xl md:px-5">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 flex justify-center items-center gap-2">
             <FaGraduationCap className="text-blue-600" />
