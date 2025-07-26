@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-800 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
@@ -91,15 +91,15 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">&copy; {currentYear} EduGate. All rights reserved.</p>
+            <p className="text-sm text-white">&copy; {currentYear} EduGate. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
+              <Link href="/privacy" className="text-sm text-white hover:text-white/80 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
+              <Link href="/terms" className="text-sm text-white hover:text-white/80 transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/sitemap" className="text-sm text-gray-400 hover:text-white transition-colors">
+              <Link href="/sitemap" className="text-sm text-white hover:text-white/80 transition-colors">
                 Sitemap
               </Link>
             </div>
