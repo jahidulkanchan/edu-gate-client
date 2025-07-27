@@ -70,7 +70,7 @@ export default function Navbar() {
               </>
             )}
 
-            {isAdmin && <NavLink href="/admission-approvals" text="Approvals" className="bg-yellow-500 hover:bg-yellow-600" />}
+            {isAdmin && <NavLink href="/admission-approvals" text="Approvals" className="hover:!bg-btn-bg !bg-transparent" />}
 
             {user && <NavLink className="hover:!bg-btn-bg !bg-transparent" href="/profile" text="Profile" />}
 
