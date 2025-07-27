@@ -15,7 +15,7 @@ export default function HeroSection() {
         {/* Animated heading */}
         <div className="animate-fade-in animate-delay-100 mb-5">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  mb-4 leading-20 bg-clip-text text-transparent bg-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  mb-4 md:leading-20 bg-clip-text text-transparent bg-white">
               Discover Your <span className="block sm:inline-block">Perfect College Match</span>
             </h1>
             <p className="text-lg md:text-lg lg:text-xl mx-auto opacity-90 leading-relaxed text-white">
