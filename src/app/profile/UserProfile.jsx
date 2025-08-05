@@ -133,7 +133,7 @@ export default function UserProfile() {
         <form className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
                 <User className="h-4 w-4 text-gray-500" />
                 Full Name
               </label>
@@ -148,7 +148,7 @@ export default function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
                 <Mail className="h-4 w-4 text-gray-500" />
                 Email
               </label>
@@ -164,7 +164,7 @@ export default function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
                 <GraduationCap className="h-4 w-4 text-gray-500" />
                 University
               </label>
@@ -179,7 +179,7 @@ export default function UserProfile() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-gray-500" />
                 Address
               </label>
