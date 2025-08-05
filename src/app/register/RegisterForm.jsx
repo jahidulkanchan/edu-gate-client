@@ -2,9 +2,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
+import axiosInstance from '@/lib/axios';
 
 export default function RegisterForm() {
    const { user, loading: authLoading } = useAuth();
@@ -35,7 +35,7 @@ export default function RegisterForm() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.post('http://localhost:5000/api/users/register', formData);
+      const res = await axiosInstance.post('/api/users/register', formData);
       setMessage('Registration successful!');
       setFormData({ name: '', email: '', password: '' }); 
       router.push('/login')
