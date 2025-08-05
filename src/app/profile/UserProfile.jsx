@@ -1,10 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
-import axiosInstance from '@/lib/axios';
 import { useAuth } from '@/context/AuthContext';
-import { User, Mail, GraduationCap, MapPin, Edit, Save, X } from 'lucide-react';
+import axiosInstance from '@/lib/axios';
+import { Edit, GraduationCap, Mail, MapPin, Save, User, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function UserProfile() {
   const { user, loading: authLoading } = useAuth();
@@ -142,7 +142,7 @@ export default function UserProfile() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl transition bg-white outline-none"
                 disabled={loading}
               />
             </div>
@@ -155,9 +155,10 @@ export default function UserProfile() {
               <input
                 type="email"
                 name="email"
+                readOnly
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white"
+                className="w-full px-4 py-3 cursor-not-allowed border border-gray-300 rounded-xl transition bg-white outline-none"
                 disabled={loading}
               />
             </div>
@@ -172,7 +173,7 @@ export default function UserProfile() {
                 name="university"
                 value={formData.university}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl transition bg-white outline-none"
                 disabled={loading}
               />
             </div>
@@ -187,7 +188,7 @@ export default function UserProfile() {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl transition bg-white outline-none"
                 disabled={loading}
               />
             </div>
